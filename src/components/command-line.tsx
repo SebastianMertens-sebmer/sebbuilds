@@ -12,7 +12,6 @@ export function CommandLine({
   return (
     <p className={`command-line command-line--${variant}`}>
       <span className="command-line__prefix">{prefix}</span>
-      {" "}
       <span className="command-line__command">{command}</span>
     </p>
   );

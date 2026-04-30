@@ -1,0 +1,16 @@
+{
+  "name": "seb-builds",
+  "version": "0.1.0",
+  "description": "Seb Builds terminal CLI for public projects and build logs.",
+  "type": "module",
+  "bin": {
+    "seb-builds": "./bin/seb-builds.mjs"
+  },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

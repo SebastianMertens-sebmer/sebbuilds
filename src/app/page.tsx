@@ -1,10 +1,7 @@
 import {
-  Clock3,
-  FileText,
   Folder,
   ListChecks,
   MapPin,
-  Radio,
 } from "lucide-react";
 import Link from "next/link";
 import { CommandLine } from "@/components/command-line";
@@ -12,19 +9,20 @@ import { ContentCard } from "@/components/content-card";
 import { JsonLd } from "@/components/json-ld";
 import { SectionPanel } from "@/components/section-panel";
 import { TerminalFrame } from "@/components/terminal-frame";
-import { getFeaturedProjects, getNotes } from "@/lib/content";
+import { getFeaturedProjects, getLogs, getProjects } from "@/lib/content";
 import { personJsonLd, websiteJsonLd } from "@/lib/json-ld";
-import { buildLog, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export default function Home() {
-  const projects = getFeaturedProjects();
-  const notes = getNotes().slice(0, 3);
+  const pinnedProjects = getFeaturedProjects();
+  const projects = (pinnedProjects.length > 0 ? pinnedProjects : getProjects()).slice(0, 3);
+  const latestLogs = getLogs().slice(0, 5);
 
   return (
     <>
       <JsonLd data={[websiteJsonLd(), personJsonLd()]} />
       <main className="site-shell">
-        <TerminalFrame active="Projects">
+        <TerminalFrame>
           <section className="hero-section" aria-labelledby="home-title">
             <div className="hero-copy">
               <CommandLine command="npx seb-builds@latest" variant="hero" />
@@ -32,7 +30,7 @@ export default function Home() {
                 SEB BUILDS
               </h1>
               <p className="hero-lede">
-                I build useful products, document the process, and ship in public.
+                products in public.
                 <span className="cursor-block" aria-hidden="true" />
               </p>
 
@@ -41,15 +39,11 @@ export default function Home() {
                   <span aria-hidden="true">&gt;_</span>
                   View Projects
                 </Link>
-                <Link className="button button--secondary" href="/notes">
+                <Link className="button button--secondary" href="/logs">
                   Follow the Build
                   <span aria-hidden="true">-&gt;</span>
                 </Link>
               </div>
-
-              <p className="system-line">
-                System <span>ready</span>. Building in public since day one.
-              </p>
             </div>
 
             <aside className="about-card" id="about" aria-label="About Sebastian">
@@ -58,32 +52,35 @@ export default function Home() {
                 <span aria-hidden="true">- x</span>
               </div>
               <p>
-                Hi, I&apos;m <strong>Sebastian</strong>.
+                <strong>Sebastian</strong> builds useful products, shares the
+                process, and keeps the loop public.
               </p>
               <p>
-                I build products with code and curiosity. I share what I learn
-                along the way. Let&apos;s build something great.
+                Based in the Netherlands. Shipping on sebmer.com. Connect on
+                LinkedIn, X, or Instagram.
               </p>
-              <Link href="/notes/the-build-loop">~/about/me.md -&gt;</Link>
+              <Link className="about-card__link" href="/about">
+                Read more -&gt;
+              </Link>
             </aside>
           </section>
 
           <section className="dashboard-grid" aria-label="Latest updates">
             <SectionPanel
               command="seb@sebmer.com ~ % tail -f build.log"
-              href="/notes"
+              href="/logs"
+              id="build-log"
               icon={<ListChecks aria-hidden="true" size={18} />}
+              linkLabel="All"
               title="Latest Build Log"
             >
               <div className="build-log">
-                {buildLog.map((item) => (
+                {latestLogs.map((item) => (
                   <div className="build-log__row" key={`${item.date}-${item.time}`}>
                     <span className="build-log__date">{item.date}</span>
-                    <span className="build-log__time">{item.time}</span>
                     <span className="build-log__dot" aria-hidden="true" />
                     <span>
                       <strong>{item.text}</strong>
-                      <em>{item.detail}</em>
                     </span>
                   </div>
                 ))}
@@ -93,8 +90,10 @@ export default function Home() {
             <SectionPanel
               command="seb@sebmer.com ~/projects % ls"
               href="/projects"
+              id="projects"
               icon={<Folder aria-hidden="true" size={18} />}
-              title="Featured Projects"
+              linkLabel="All"
+              title="Projects"
             >
               <div className="content-list">
                 {projects.map((project) => (
@@ -102,29 +101,12 @@ export default function Home() {
                 ))}
               </div>
             </SectionPanel>
-
-            <SectionPanel
-              command="seb@sebmer.com ~/notes % cat index.md"
-              href="/notes"
-              icon={<FileText aria-hidden="true" size={18} />}
-              title="Latest Notes"
-            >
-              <div className="content-list">
-                {notes.map((note) => (
-                  <ContentCard compact entry={note} key={note.slug} />
-                ))}
-              </div>
-            </SectionPanel>
           </section>
 
-          <section className="wide-section" id="videos">
+          <section className="wide-section" id="follow">
             <div>
-              <CommandLine command="cat videos.md" prefix="seb@sebmer.com ~/videos %" />
-              <h2>Build videos, soon.</h2>
-              <p>
-                YouTube is part of the roadmap. Until then, the notes and project
-                logs carry the public build trail.
-              </p>
+              <CommandLine command="cat follow.md" prefix="seb@sebmer.com ~/follow %" />
+              <h2>Follow the build.</h2>
             </div>
             <div className="status-pills" aria-label="Current channels">
               {siteConfig.socials.map((social) => (
@@ -137,31 +119,26 @@ export default function Home() {
 
           <section className="contact-strip" id="contact">
             <div>
-              <CommandLine command="open contact.txt" prefix="seb@sebmer.com ~ %" />
-              <h2>Want to build something useful?</h2>
+              <CommandLine command="open tally.so/r/3jeJVa" prefix="seb@sebmer.com ~ %" />
+              <h2>Build together?</h2>
             </div>
-            <a className="button button--primary" href={`mailto:${siteConfig.author.email}`}>
+            <a
+              className="button button--primary"
+              href={siteConfig.contactUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
               Contact Sebastian
             </a>
           </section>
 
           <footer className="terminal-footer">
             <span className="footer-status">
-              <Radio aria-hidden="true" size={16} />
-              Building in public
-            </span>
-            <span className="footer-status">
               <MapPin aria-hidden="true" size={16} />
               {siteConfig.author.location}
             </span>
-            <span className="footer-status">
-              <Clock3 aria-hidden="true" size={16} />
-              UTC+2
-            </span>
             <span className="footer-links">
               <span>(c) 2026 {siteConfig.name}</span>
-              <Link href="/rss.xml">RSS</Link>
-              <Link href="/sitemap.xml">Sitemap</Link>
             </span>
           </footer>
         </TerminalFrame>

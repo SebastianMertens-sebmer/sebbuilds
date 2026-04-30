@@ -1,0 +1,10 @@
+{
+  "title": "Tracker",
+  "slug": "tracker",
+  "description": "A Swift-first macOS utility for activity tracking and real permission-state onboarding.",
+  "date": "2026-04-08",
+  "tags": ["macOS", "Swift", "Productivity"],
+  "status": "building",
+  "featured": false,
+  "body": "Tracker is a Swift-first macOS utility for understanding local activity and making permission onboarding match the real system state.\n\nThe project focuses on the unglamorous but important part of desktop tools: permissions, onboarding, and trustworthy local behavior. If a macOS app needs screen recording or activity context, the user should always understand what is happening and what the app can actually access.\n\n## What it explores\n\n- Native macOS permission flows.\n- Clear onboarding for screen and activity access.\n- Local-first tracking behavior that stays understandable.\n- A foundation for future productivity and workflow tools.\n\n## Current direction\n\nRecent work tightened onboarding so the UI reflects the real macOS permission state instead of guessing."
+}

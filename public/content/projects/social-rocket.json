@@ -1,0 +1,10 @@
+{
+  "title": "Social Rocket",
+  "slug": "social-rocket",
+  "description": "A Hermes-assisted research and content system for finding better public build signals.",
+  "date": "2026-04-29",
+  "tags": ["Hermes", "Content", "Research"],
+  "status": "building",
+  "featured": true,
+  "body": "Social Rocket is a research and content operations system for building a better public loop around Seb Builds.\n\nThe system helps collect and review signals from LinkedIn, X, and Instagram so the public build process is less random. The goal is not to automate personality. The goal is to understand what is worth paying attention to, keep better source notes, and turn real building activity into useful public updates.\n\n## What it does\n\n- Tracks public sources and creator patterns across social platforms.\n- Keeps review queues for potential follows, content ideas, and useful references.\n- Supports content research for build-in-public updates.\n- Uses Hermes-assisted workflows to inspect, summarize, and organize social signals.\n\n## Public boundary\n\nThe private Rocket setup contains local data, credentials, and operational scripts. Those details are intentionally not part of this public project page. The public version is the product idea: a research layer for creators who want better inputs before they post.\n\n## Current direction\n\nThe current work is focused on source discovery, curation, and a cleaner loop between research, writing, and publishing."
+}

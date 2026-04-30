@@ -1,10 +1,26 @@
-import { getAllEntries } from "@/lib/content";
+import { getLogs, getProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
-  const entries = getAllEntries();
+  const entries = [
+    ...getProjects().map((project) => ({
+      title: project.title,
+      href: project.href,
+      date: project.date,
+      description: project.description,
+    })),
+    ...getLogs().map((log) => ({
+      title: log.text,
+      href: `/logs#${log.id}`,
+      date: log.date,
+      description: log.detail,
+    })),
+  ].sort(
+    (entryA, entryB) =>
+      new Date(entryB.date).getTime() - new Date(entryA.date).getTime(),
+  );
   const updated = entries[0]?.date ?? "2026-04-29";
   const items = entries
     .map(

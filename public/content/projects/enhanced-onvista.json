@@ -1,0 +1,11 @@
+{
+  "title": "Enhanced OnVista",
+  "slug": "enhanced-onvista",
+  "description": "A Python wrapper and market-data toolkit for German financial data research.",
+  "date": "2025-09-05",
+  "tags": ["Python", "Market Data", "Finance"],
+  "status": "building",
+  "featured": false,
+  "repoUrl": "https://github.com/SebastianMertens-sebmer/enhanced-onvista",
+  "body": "Enhanced OnVista is a Python wrapper and data toolkit for German financial market data research.\n\nThe project focuses on making market data easier to collect, rank, and analyze in repeatable scripts. It has been used around broader trading and research experiments, but the public framing is the software layer: a practical API wrapper and batch-processing tool.\n\n## What it supports\n\n- Access to German financial market data from OnVista-style sources.\n- Instrument ranking and fundamentals extraction.\n- Batch processing for larger research runs.\n- A bridge between raw market pages and structured analysis code.\n\n## Public boundary\n\nThis is not investment advice and does not publish trading recommendations. It is shared as an engineering project for market-data access and analysis."
+}

@@ -2,7 +2,7 @@ import {
   Instagram,
   Linkedin,
   Music2,
-  Twitter,
+  X as XIcon,
   Youtube,
   type LucideIcon,
 } from "lucide-react";
@@ -13,6 +13,12 @@ export type SocialLink = {
   label: string;
   status: "live" | "pending" | "soon";
   icon: LucideIcon;
+};
+
+export type NavLink = {
+  label: string;
+  href: string;
+  external?: boolean;
 };
 
 const socialLinks: SocialLink[] = [
@@ -32,7 +38,7 @@ const socialLinks: SocialLink[] = [
     name: "X",
     label: "X",
     status: "soon",
-    icon: Twitter,
+    icon: XIcon,
   },
   {
     name: "YouTube",
@@ -53,9 +59,10 @@ export const siteConfig = {
   domain: "sebmer.com",
   url: "https://sebmer.com",
   locale: "en_US",
-  tagline: "Sebastian builds products",
+  tagline: "products in public.",
   description:
-    "Seb Builds is Sebastian's public builder log for useful products, project notes, videos, and lessons from shipping in public.",
+    "Seb Builds is Sebastian's public builder log for useful products, build logs, videos, and lessons from shipping in public.",
+  contactUrl: "https://tally.so/r/3jeJVa",
   author: {
     name: "Sebastian",
     location: "Amsterdam, NL",
@@ -63,43 +70,10 @@ export const siteConfig = {
   },
   nav: [
     { label: "Projects", href: "/projects" },
-    { label: "Notes", href: "/notes" },
-    { label: "About", href: "/#about" },
-    { label: "Videos", href: "/#videos" },
-    { label: "Contact", href: "/#contact" },
-  ],
+    { label: "Build Log", href: "/logs" },
+    { label: "About", href: "/about" },
+    { label: "Follow", href: "/#follow" },
+    { label: "Contact", href: "https://tally.so/r/3jeJVa", external: true },
+  ] satisfies NavLink[],
   socials: socialLinks,
 } as const;
-
-export const buildLog = [
-  {
-    date: "2026-04-29",
-    time: "21:42:17",
-    text: "Deployed sebmer.com v1.0.0",
-    detail: "Live and feeling fast.",
-  },
-  {
-    date: "2026-04-29",
-    time: "19:18:03",
-    text: "Added project: FlowState",
-    detail: "Focus timer for deep work.",
-  },
-  {
-    date: "2026-04-28",
-    time: "16:09:11",
-    text: "Wrote: Shipping is a feature",
-    detail: "Why momentum beats perfection.",
-  },
-  {
-    date: "2026-04-28",
-    time: "12:31:22",
-    text: "YouTube video published",
-    detail: "Building in public update #1.",
-  },
-  {
-    date: "2026-04-27",
-    time: "17:55:44",
-    text: "New note: The build loop",
-    detail: "Ideas -> Code -> Ship -> Learn.",
-  },
-];

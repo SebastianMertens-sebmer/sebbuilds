@@ -8,14 +8,14 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Projects Sebastian is building, testing, and documenting on Seb Builds.",
+    "All products and experiments Sebastian is building and documenting on Seb Builds.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
     title: `Projects - ${siteConfig.name}`,
     description:
-      "Projects Sebastian is building, testing, and documenting on Seb Builds.",
+      "All products and experiments Sebastian is building and documenting on Seb Builds.",
     url: "/projects",
   },
 };
@@ -28,13 +28,10 @@ export default function ProjectsPage() {
     <main className="site-shell">
       <TerminalFrame active="Projects">
         <section className="terminal-page" aria-labelledby="projects-title">
-          <CommandLine command="ls ./projects --featured --all" />
+          <CommandLine command="ls ./projects --all" />
           <div className="page-heading">
             <h1 id="projects-title">Projects</h1>
-            <p>
-              Useful products, experiments, and build notes from the Seb Builds
-              workspace.
-            </p>
+            <p>All products, experiments, and shipped ideas.</p>
           </div>
 
           <div className="tag-row tag-row--large" aria-label="Project tags">

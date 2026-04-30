@@ -1,0 +1,10 @@
+{
+  "title": "Lovalingo",
+  "slug": "lovalingo",
+  "description": "A translation and localization stack for React and Next.js apps, with SEO and admin workflows.",
+  "date": "2026-03-17",
+  "tags": ["Next.js", "i18n", "SEO"],
+  "status": "building",
+  "featured": false,
+  "body": "Lovalingo is a translation and localization stack for React and Next.js apps.\n\nThe active Rocket work spans the runtime package, marketing site, SEO content, database/admin work, and email-style inbox workflows. The product idea is simple: make multilingual web apps easier to operate without turning translation into a fragile one-off process.\n\n## What it does\n\n- Adds translation and localization capabilities to React and Next.js apps.\n- Supports multilingual SEO surfaces such as sitemaps, canonicals, and localized pages.\n- Gives teams operational tools around projects, users, and content workflows.\n- Connects the public marketing story with the underlying product system.\n\n## Current direction\n\nRecent work focused on admin inbox management, email threads, SEO fixes, locale-aware URLs, and making the public site more resilient."
+}

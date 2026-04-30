@@ -1,0 +1,11 @@
+{
+  "title": "Elson.ai",
+  "slug": "elson-ai",
+  "description": "A local-first macOS voice assistant for dictation, cleanup, replies, and paste-first workflows.",
+  "date": "2026-04-17",
+  "tags": ["macOS", "AI", "Voice"],
+  "status": "shipped",
+  "featured": true,
+  "repoUrl": "https://github.com/TEMPO-AI-LLC/elson.ai",
+  "body": "Elson.ai is a local-first macOS voice assistant built around fast dictation, transcript cleanup, screenshot-aware replies, and paste-first desktop workflows.\n\nThe project started from a simple frustration: voice tools are useful, but the best versions should be inspectable, customizable, and close to the user's actual desktop workflow. Elson is positioned as an open-source alternative to Wispr Flow-style tools, with a stronger emphasis on local state, explicit control, and workflows that end where work already happens: the active app.\n\n## What it does\n\n- Turns speech into usable text for writing, chat, and day-to-day desktop work.\n- Cleans transcripts so dictated text reads like something ready to paste.\n- Uses screenshot context for replies and lightweight assistance.\n- Keeps the flow paste-first instead of forcing everything into a separate assistant window.\n\n## Current direction\n\nThe Rocket setup includes the main Elson codebase and release-oriented clones. Recent work focused on published installer artifacts, legacy chat interaction fixes, prompt refinement, and making the product easier to run as a real macOS utility.\n\n## Why it matters\n\nElson is one of the clearest Seb Builds projects: useful, inspectable, local-first, and close to a daily workflow. It is the kind of product that can be improved in public without hiding behind a large platform story."
+}

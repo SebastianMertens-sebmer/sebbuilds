@@ -1,0 +1,10 @@
+{
+  "title": "Gairvis",
+  "slug": "gairvis",
+  "description": "A branded web and canvas product combining a public site with interactive AI work surfaces.",
+  "date": "2026-03-05",
+  "tags": ["Next.js", "Canvas", "AI"],
+  "status": "building",
+  "featured": false,
+  "body": "Gairvis combines branded web work with an interactive canvas product surface.\n\nThe Rocket repos include a public web presence and canvas-oriented product work. The public version of the story is about shaping an AI-facing interface that feels useful, readable, and tied to a real brand instead of a generic demo.\n\n## What it explores\n\n- A Next.js web surface with SEO and brand foundations.\n- Canvas-style interaction patterns for AI-assisted work.\n- Product structure that can support more than a static marketing page.\n- Clearer code organization as the product grows.\n\n## Current direction\n\nRecent work focused on web structure, brand-ready components, and reliability improvements in the canvas-side product."
+}

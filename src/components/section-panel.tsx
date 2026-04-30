@@ -1,10 +1,13 @@
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
 type SectionPanelProps = {
   title: string;
   icon?: ReactNode;
+  id?: string;
   href?: string;
+  linkLabel?: string;
   command?: string;
   children: ReactNode;
 };
@@ -12,12 +15,14 @@ type SectionPanelProps = {
 export function SectionPanel({
   title,
   icon,
+  id,
   href,
+  linkLabel = "Open",
   command,
   children,
 }: SectionPanelProps) {
   return (
-    <section className="section-panel">
+    <section className="section-panel" id={id}>
       <div className="section-panel__header">
         <h2>
           {icon}
@@ -25,7 +30,8 @@ export function SectionPanel({
         </h2>
         {href ? (
           <Link className="text-link" href={href}>
-            View all <span aria-hidden="true">-&gt;</span>
+            <span>{linkLabel}</span>
+            <ArrowRight aria-hidden="true" size={16} />
           </Link>
         ) : null}
       </div>

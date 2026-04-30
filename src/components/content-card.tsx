@@ -1,33 +1,52 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import type { ContentEntry, ProjectEntry } from "@/lib/content";
-import { formatDate, formatShortDate } from "@/lib/format";
+import { formatDate } from "@/lib/format";
 
 type ContentCardProps = {
   entry: ContentEntry;
   compact?: boolean;
+  descriptionMode?: "short" | "none";
+  linked?: boolean;
 };
 
-export function ContentCard({ entry, compact = false }: ContentCardProps) {
-  const isProject = entry.kind === "projects";
+export function ContentCard({
+  entry,
+  compact = false,
+  descriptionMode,
+  linked = true,
+}: ContentCardProps) {
+  const resolvedDescriptionMode = descriptionMode ?? (compact ? "none" : "short");
 
   return (
-    <article className={`content-card ${compact ? "content-card--compact" : ""}`}>
+    <article
+      className={`content-card ${compact ? "content-card--compact" : ""} ${
+        resolvedDescriptionMode === "none" ? "content-card--no-description" : ""
+      } ${linked ? "" : "content-card--static"}`}
+      aria-label={entry.title}
+    >
       <div className="content-card__meta">
-        <span>{isProject ? (entry as ProjectEntry).status : formatShortDate(entry.date)}</span>
+        <span>{entry.status}</span>
       </div>
       <div className="content-card__main">
-        <h3>
-          <Link href={entry.href}>{entry.title}</Link>
-        </h3>
-        <p>{entry.description}</p>
+        <h3>{entry.title}</h3>
+        {resolvedDescriptionMode === "short" ? <p>{entry.description}</p> : null}
         <div className="tag-row">
           {entry.tags.slice(0, 3).map((tag) => (
             <span key={tag}>{tag}</span>
           ))}
         </div>
       </div>
-      <ArrowRight aria-hidden="true" className="content-card__arrow" size={18} />
+      {linked ? (
+        <>
+          <ArrowRight aria-hidden="true" className="content-card__arrow" size={18} />
+          <Link
+            aria-label={`Open ${entry.title}`}
+            className="content-card__hitbox"
+            href={entry.href}
+          />
+        </>
+      ) : null}
     </article>
   );
 }
@@ -40,8 +59,7 @@ export function ArticleHeader({ entry }: ArticleHeaderProps) {
   return (
     <header className="article-header">
       <p className="article-kicker">
-        {entry.kind === "projects" ? "Project" : "Note"} / {formatDate(entry.date)} /{" "}
-        {entry.readingTime}
+        Project / {formatDate(entry.date)} / {entry.readingTime}
       </p>
       <h1>{entry.title}</h1>
       <p>{entry.description}</p>
@@ -50,7 +68,7 @@ export function ArticleHeader({ entry }: ArticleHeaderProps) {
           <span key={tag}>{tag}</span>
         ))}
       </div>
-      {entry.kind === "projects" ? <ProjectLinks project={entry} /> : null}
+      <ProjectLinks project={entry} />
     </header>
   );
 }

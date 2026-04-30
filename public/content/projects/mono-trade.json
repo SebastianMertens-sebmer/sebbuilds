@@ -1,0 +1,10 @@
+{
+  "title": "Mono Trade",
+  "slug": "mono-trade",
+  "description": "A market-data research system for scanners, intraday snapshots, and trading infrastructure experiments.",
+  "date": "2026-04-29",
+  "tags": ["Market Data", "Python", "Research"],
+  "status": "building",
+  "featured": true,
+  "body": "Mono Trade is a market-data and trading research system. It brings together scanners, data collection, and infrastructure experiments for working with financial market signals.\n\nThe current Rocket work includes OnVista scanner experiments, intraday snapshot bars, and research around signal collection. The public framing is intentionally high level: this is engineering work around market data, not financial advice or a public trading strategy.\n\n## What it explores\n\n- Collecting structured market snapshots for later analysis.\n- Building scanners that can watch broad sets of instruments.\n- Hardening connectors and data pipelines so research can run repeatedly.\n- Separating signal research from execution details.\n\n## Current direction\n\nRecent work focused on intraday snapshot bars and scanner improvements. The interesting product question is how much of a trading research stack can be made reliable, observable, and boring enough to trust as infrastructure.\n\n## Public boundary\n\nThis page does not publish strategies, recommendations, private data, account details, or execution rules. The project is shared as a software and data-engineering build."
+}

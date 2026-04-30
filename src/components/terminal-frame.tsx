@@ -39,17 +39,29 @@ export function TerminalFrame({ active, children }: TerminalFrameProps) {
         </Link>
 
         <nav aria-label="Primary navigation" className="nav-links">
-          {siteConfig.nav.map((item) => (
-            <Link
-              aria-current={active === item.label ? "page" : undefined}
-              className="nav-link"
-              href={item.href}
-              key={item.href}
-            >
-              {active === item.label ? ">_ " : ""}
-              {item.label}
-            </Link>
-          ))}
+          {siteConfig.nav.map((item) =>
+            item.external ? (
+              <a
+                className="nav-link"
+                href={item.href}
+                key={item.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                aria-current={active === item.label ? "page" : undefined}
+                className="nav-link"
+                href={item.href}
+                key={item.href}
+              >
+                {active === item.label ? ">_ " : ""}
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <SocialRail />

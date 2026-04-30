@@ -32,11 +32,9 @@ export function personJsonLd() {
 }
 
 export function contentJsonLd(entry: ContentEntry) {
-  const isProject = entry.kind === "projects";
-
   return {
     "@context": "https://schema.org",
-    "@type": isProject ? "CreativeWork" : "BlogPosting",
+    "@type": "CreativeWork",
     headline: entry.title,
     description: entry.description,
     datePublished: entry.date,

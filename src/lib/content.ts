@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
 
-const contentDirectory = path.join(process.cwd(), "content");
+const publicContentDirectory = path.join(process.cwd(), "public", "content");
 
-export type ContentKind = "projects" | "notes";
+export type ContentKind = "projects";
+
+export type ProjectStatus = "shipped" | "building" | "idea";
 
 export type BaseEntry = {
   kind: ContentKind;
@@ -13,6 +14,7 @@ export type BaseEntry = {
   description: string;
   date: string;
   tags: string[];
+  body: string;
   content: string;
   readingTime: string;
   href: string;
@@ -20,20 +22,28 @@ export type BaseEntry = {
 
 export type ProjectEntry = BaseEntry & {
   kind: "projects";
-  status: "shipped" | "building" | "idea";
+  status: ProjectStatus;
   demoUrl?: string;
   repoUrl?: string;
   videoUrl?: string;
   featured: boolean;
 };
 
-export type NoteEntry = BaseEntry & {
-  kind: "notes";
+export type ContentEntry = ProjectEntry;
+
+export type LogEntry = {
+  id: string;
+  date: string;
+  time: string;
+  text: string;
+  detail: string;
 };
 
-export type ContentEntry = ProjectEntry | NoteEntry;
+type Manifest = {
+  items?: unknown;
+};
 
-type RawFrontmatter = {
+type RawProject = {
   title?: unknown;
   slug?: unknown;
   description?: unknown;
@@ -44,7 +54,47 @@ type RawFrontmatter = {
   repoUrl?: unknown;
   videoUrl?: unknown;
   featured?: unknown;
+  body?: unknown;
 };
+
+type RawLog = {
+  id?: unknown;
+  date?: unknown;
+  time?: unknown;
+  text?: unknown;
+  detail?: unknown;
+};
+
+function readJson(filePath: string): unknown {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Missing JSON file: ${filePath}`);
+  }
+
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown JSON error";
+
+    throw new Error(`Invalid JSON in ${filePath}: ${message}`);
+  }
+}
+
+function readManifest(kind: "projects" | "logs") {
+  const manifestPath = path.join(publicContentDirectory, kind, "index.json");
+  const manifest = readJson(manifestPath) as Manifest;
+
+  if (!Array.isArray(manifest.items)) {
+    throw new Error(`Missing items array in ${manifestPath}`);
+  }
+
+  return manifest.items.map((item, index) => {
+    if (typeof item !== "string" || item.trim() === "") {
+      throw new Error(`Invalid manifest item ${index} in ${manifestPath}`);
+    }
+
+    return item.endsWith(".json") ? item : `${item}.json`;
+  });
+}
 
 function requireString(value: unknown, field: string, filePath: string) {
   if (typeof value !== "string" || value.trim() === "") {
@@ -58,66 +108,65 @@ function optionalString(value: unknown) {
   return typeof value === "string" && value.trim() !== "" ? value : undefined;
 }
 
-function readKind(kind: ContentKind) {
-  const directory = path.join(contentDirectory, kind);
-
-  if (!fs.existsSync(directory)) {
-    return [];
+function readTags(value: unknown, filePath: string) {
+  if (!Array.isArray(value)) {
+    throw new Error(`Missing tags array in ${filePath}`);
   }
 
-  return fs
-    .readdirSync(directory)
-    .filter((fileName) => fileName.endsWith(".mdx"))
-    .map((fileName) => readEntry(kind, fileName))
-    .sort(
-      (entryA, entryB) =>
-        new Date(entryB.date).getTime() - new Date(entryA.date).getTime(),
-    );
+  return value.map((tag, index) => {
+    if (typeof tag !== "string" || tag.trim() === "") {
+      throw new Error(`Invalid tag ${index} in ${filePath}`);
+    }
+
+    return tag;
+  });
 }
 
-function readEntry(kind: ContentKind, fileName: string): ContentEntry {
-  const filePath = path.join(contentDirectory, kind, fileName);
-  const source = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(source);
-  const frontmatter = data as RawFrontmatter;
-  const fallbackSlug = fileName.replace(/\.mdx$/, "");
-  const slug = optionalString(frontmatter.slug) ?? fallbackSlug;
-  const tags = Array.isArray(frontmatter.tags)
-    ? frontmatter.tags.filter((tag): tag is string => typeof tag === "string")
-    : [];
-  const base = {
-    kind,
-    title: requireString(frontmatter.title, "title", filePath),
-    slug,
-    description: requireString(frontmatter.description, "description", filePath),
-    date: requireString(frontmatter.date, "date", filePath),
-    tags,
-    content,
-    readingTime: getReadingTime(content),
-    href: `/${kind}/${slug}`,
-  } satisfies BaseEntry;
+function readProject(fileName: string): ProjectEntry {
+  const filePath = path.join(publicContentDirectory, "projects", fileName);
+  const raw = readJson(filePath) as RawProject;
+  const status = requireString(raw.status, "status", filePath);
+  const body = requireString(raw.body, "body", filePath);
 
-  if (kind === "projects") {
-    const status = optionalString(frontmatter.status) ?? "building";
-
-    return {
-      ...base,
-      kind: "projects",
-      status: isProjectStatus(status) ? status : "building",
-      demoUrl: optionalString(frontmatter.demoUrl),
-      repoUrl: optionalString(frontmatter.repoUrl),
-      videoUrl: optionalString(frontmatter.videoUrl),
-      featured: frontmatter.featured === true,
-    };
+  if (!isProjectStatus(status)) {
+    throw new Error(`Invalid project status "${status}" in ${filePath}`);
   }
 
+  const slug = requireString(raw.slug, "slug", filePath);
+
   return {
-    ...base,
-    kind: "notes",
+    kind: "projects",
+    title: requireString(raw.title, "title", filePath),
+    slug,
+    description: requireString(raw.description, "description", filePath),
+    date: requireString(raw.date, "date", filePath),
+    tags: readTags(raw.tags, filePath),
+    status,
+    demoUrl: optionalString(raw.demoUrl),
+    repoUrl: optionalString(raw.repoUrl),
+    videoUrl: optionalString(raw.videoUrl),
+    featured: raw.featured === true,
+    body,
+    content: body,
+    readingTime: getReadingTime(body),
+    href: `/projects/${slug}`,
   };
 }
 
-function isProjectStatus(status: string): status is ProjectEntry["status"] {
+function readLog(fileName: string): LogEntry {
+  const filePath = path.join(publicContentDirectory, "logs", fileName);
+  const raw = readJson(filePath) as RawLog;
+
+  return {
+    id: requireString(raw.id, "id", filePath),
+    date: requireString(raw.date, "date", filePath),
+    time: requireString(raw.time, "time", filePath),
+    text: requireString(raw.text, "text", filePath),
+    detail: requireString(raw.detail, "detail", filePath),
+  };
+}
+
+function isProjectStatus(status: string): status is ProjectStatus {
   return status === "shipped" || status === "building" || status === "idea";
 }
 
@@ -132,28 +181,28 @@ function getReadingTime(content: string) {
 }
 
 export function getProjects() {
-  return readKind("projects") as ProjectEntry[];
+  return readManifest("projects").map(readProject);
 }
 
 export function getFeaturedProjects() {
   return getProjects().filter((project) => project.featured);
 }
 
-export function getNotes() {
-  return readKind("notes") as NoteEntry[];
+export function getLogs() {
+  return readManifest("logs").map(readLog);
 }
 
 export function getAllEntries() {
-  return [...getProjects(), ...getNotes()].sort(
-    (entryA, entryB) =>
-      new Date(entryB.date).getTime() - new Date(entryA.date).getTime(),
-  );
+  return getProjects();
 }
 
 export function getEntryBySlug(kind: "projects", slug: string): ProjectEntry | undefined;
-export function getEntryBySlug(kind: "notes", slug: string): NoteEntry | undefined;
 export function getEntryBySlug(kind: ContentKind, slug: string) {
-  return readKind(kind).find((entry) => entry.slug === slug);
+  if (kind === "projects") {
+    return getProjects().find((entry) => entry.slug === slug);
+  }
+
+  return undefined;
 }
 
 export function getAllTags(entries: ContentEntry[]) {
