@@ -1,4 +1,5 @@
 import {
+  Github,
   Instagram,
   Linkedin,
   Music2,
@@ -45,6 +46,13 @@ const socialLinks: SocialLink[] = [
     label: "YouTube",
     status: "soon",
     icon: Youtube,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/SebastianMertens-sebmer",
+    label: "GitHub",
+    status: "live",
+    icon: Github,
   },
   {
     name: "TikTok",

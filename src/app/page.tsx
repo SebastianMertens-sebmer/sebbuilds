@@ -57,7 +57,7 @@ export default function Home() {
               </p>
               <p>
                 Based in the Netherlands. Shipping on sebmer.com. Connect on
-                LinkedIn, X, or Instagram.
+                LinkedIn, X, Instagram, or GitHub.
               </p>
               <Link className="about-card__link" href="/about">
                 Read more -&gt;

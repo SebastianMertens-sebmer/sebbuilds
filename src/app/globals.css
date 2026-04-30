@@ -326,6 +326,10 @@ select {
   --social: #ff3131;
 }
 
+.social-link:nth-child(5) {
+  --social: var(--text-strong);
+}
+
 .social-link--disabled {
   border-style: dashed;
   color: var(--faint);

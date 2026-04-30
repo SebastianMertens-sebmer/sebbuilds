@@ -35,7 +35,7 @@ const aboutLines = [
   {
     number: "03",
     title: "Connect in public",
-    text: "Follow along on LinkedIn, X, Instagram, and YouTube as the project stack grows.",
+    text: "Follow along on GitHub, LinkedIn, X, Instagram, and YouTube as the project stack grows.",
   },
 ];
 
