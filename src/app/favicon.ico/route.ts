@@ -1,0 +1,16 @@
+export const dynamic = "force-static";
+
+const icon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#050706"/>
+  <path d="M17 22l10 10-10 10" fill="none" stroke="#28f06b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M31 44h16" fill="none" stroke="#f9d84a" stroke-width="5" stroke-linecap="round"/>
+</svg>`;
+
+export function GET() {
+  return new Response(icon, {
+    headers: {
+      "Cache-Control": "public, max-age=31536000, immutable",
+      "Content-Type": "image/svg+xml",
+    },
+  });
+}
