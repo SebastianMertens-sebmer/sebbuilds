@@ -2,6 +2,9 @@
   "name": "seb-builds-site",
   "version": "0.1.0",
   "private": true,
+  "bin": {
+    "seb-builds": "./packages/cli/bin/seb-builds.mjs"
+  },
   "workspaces": [
     "packages/*"
   ],

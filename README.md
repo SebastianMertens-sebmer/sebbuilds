@@ -13,13 +13,13 @@ The folder implies the content type. Projects render as long-form Markdown pages
 
 ## CLI
 
-The package workspace in `packages/cli` publishes the `seb-builds` binary:
+The repo can be run directly as a GitHub-sourced CLI with `npx`:
 
 ```bash
-npx seb-builds@latest
-npx seb-builds@latest ls ./projects --all
-npx seb-builds@latest cat ./projects/elson-ai.md
-npx seb-builds@latest tail -f ./build.log
+npx github:SebastianMertens-sebmer/sebbuilds
+npx github:SebastianMertens-sebmer/sebbuilds ls ./projects --all
+npx github:SebastianMertens-sebmer/sebbuilds cat ./projects/elson-ai.md
+npx github:SebastianMertens-sebmer/sebbuilds tail -f ./build.log
 ```
 
 For local testing, point the CLI at a running local site:

@@ -24,7 +24,7 @@ export default function Home() {
         <TerminalFrame>
           <section className="hero-section" aria-labelledby="home-title">
             <div className="hero-copy">
-              <CommandLine command="npx seb-builds@latest" variant="hero" />
+              <CommandLine command="npx github:SebastianMertens-sebmer/sebbuilds" variant="hero" />
               <h1 className="wordmark" data-text="SEB BUILDS" id="home-title">
                 SEB BUILDS
               </h1>

@@ -96,11 +96,11 @@ function printHelp() {
   console.log("products in public.");
   console.log("");
   console.log("Usage:");
-  console.log("  npx seb-builds@latest ls ./projects --all");
-  console.log("  npx seb-builds@latest cat ./projects/elson-ai.md");
-  console.log("  npx seb-builds@latest tail -f ./build.log");
-  console.log("  npx seb-builds@latest cat ./about/sebastian.md");
-  console.log("  npx seb-builds@latest open contact.txt");
+  console.log("  npx github:SebastianMertens-sebmer/sebbuilds ls ./projects --all");
+  console.log("  npx github:SebastianMertens-sebmer/sebbuilds cat ./projects/elson-ai.md");
+  console.log("  npx github:SebastianMertens-sebmer/sebbuilds tail -f ./build.log");
+  console.log("  npx github:SebastianMertens-sebmer/sebbuilds cat ./about/sebastian.md");
+  console.log("  npx github:SebastianMertens-sebmer/sebbuilds open contact.txt");
 }
 
 async function getProjects() {

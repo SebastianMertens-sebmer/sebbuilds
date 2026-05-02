@@ -408,11 +408,10 @@ select {
 
 .command-line--hero .command-line__command {
   display: inline-block;
-  overflow: hidden;
-  max-width: 24ch;
+  max-width: min(100%, 48ch);
+  overflow-wrap: anywhere;
   line-height: inherit;
-  white-space: nowrap;
-  animation: type-reveal 1.1s steps(24, end) both;
+  white-space: normal;
 }
 
 .wordmark {
