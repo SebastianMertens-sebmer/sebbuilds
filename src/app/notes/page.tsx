@@ -1,5 +1,2 @@
-import { permanentRedirect } from "next/navigation";
-
-export default function NotesPage() {
-  permanentRedirect("/logs");
-}
+export { metadata } from "../logs/page";
+export { default } from "../logs/page";

@@ -25,26 +25,30 @@ export type NavLink = {
 const socialLinks: SocialLink[] = [
   {
     name: "LinkedIn",
+    href: "https://www.linkedin.com/in/auto-mate/",
     label: "LinkedIn",
-    status: "pending",
+    status: "live",
     icon: Linkedin,
   },
   {
     name: "Instagram",
+    href: "https://www.instagram.com/sebmer_/",
     label: "Instagram",
-    status: "pending",
+    status: "live",
     icon: Instagram,
   },
   {
     name: "X",
+    href: "https://x.com/sebmer_com",
     label: "X",
-    status: "soon",
+    status: "live",
     icon: XIcon,
   },
   {
     name: "YouTube",
+    href: "https://www.youtube.com/@Sebmer-automate",
     label: "YouTube",
-    status: "soon",
+    status: "live",
     icon: Youtube,
   },
   {
