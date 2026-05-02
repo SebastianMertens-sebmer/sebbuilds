@@ -3,12 +3,31 @@
   "version": "0.1.0",
   "description": "Seb Builds terminal CLI for public projects and build logs.",
   "type": "module",
+  "homepage": "https://sebmer.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianMertens-sebmer/sebbuilds.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/SebastianMertens-sebmer/sebbuilds/issues"
+  },
+  "keywords": [
+    "seb-builds",
+    "build-log",
+    "cli",
+    "projects",
+    "sebmer"
+  ],
   "bin": {
     "seb-builds": "./bin/seb-builds.mjs"
   },
   "files": [
     "bin"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=18"
   },
