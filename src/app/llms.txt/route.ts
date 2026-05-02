@@ -19,6 +19,7 @@ ${siteConfig.name} is Sebastian's public builder log for useful products, long-f
 - [About Sebastian](${siteConfig.url}/about)
 - [Projects](${siteConfig.url}/projects)
 - [Latest Build Logs](${siteConfig.url}/logs)
+- [Legal, Privacy, and Cookies](${siteConfig.url}/legal)
 - [Full LLM Context](${siteConfig.url}/llms-full.txt)
 - [RSS](${siteConfig.url}/rss.xml)
 - [Sitemap](${siteConfig.url}/sitemap.xml)

@@ -30,6 +30,7 @@ ${siteConfig.description}
 - About: ${siteConfig.url}/about
 - Projects: ${siteConfig.url}/projects
 - Logs: ${siteConfig.url}/logs
+- Legal: ${siteConfig.url}/legal
 - Contact: ${siteConfig.contactUrl}
 
 ## Public JSON

@@ -1,4 +1,4 @@
-import { LockKeyhole, TerminalSquare } from "lucide-react";
+import { LockKeyhole, MapPin, TerminalSquare } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -67,8 +67,29 @@ export function TerminalFrame({ active, children }: TerminalFrameProps) {
         <SocialRail />
       </div>
 
-      <div className="terminal-body">{children}</div>
+      <div className="terminal-body">
+        {children}
+        <TerminalFooter />
+      </div>
     </div>
+  );
+}
+
+function TerminalFooter() {
+  return (
+    <footer className="terminal-footer">
+      <span className="footer-status">
+        <MapPin aria-hidden="true" size={16} />
+        {siteConfig.author.location}
+      </span>
+      <span className="footer-links">
+        <span>
+          © 2026 {siteConfig.name} by {siteConfig.legal.businessName} | KVK{" "}
+          {siteConfig.legal.kvkNumber}
+        </span>
+        <Link href="/legal">Legal</Link>
+      </span>
+    </footer>
   );
 }
 

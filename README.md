@@ -37,3 +37,7 @@ npm run lint
 npm run typecheck
 npm run build
 ```
+
+## License
+
+MIT © 2026 Sebastian Mertens

@@ -71,10 +71,16 @@ export const siteConfig = {
   description:
     "Seb Builds is Sebastian's public builder log for useful products, build logs, videos, and lessons from shipping in public.",
   contactUrl: "https://tally.so/r/3jeJVa",
+  legal: {
+    businessName: "Mertens Advies",
+    ownerName: "Sebastian Mertens",
+    kvkNumber: "96847247",
+    addressLabel: "Available on request via the contact form",
+    contactLabel: "Available on request via the contact form",
+  },
   author: {
     name: "Sebastian",
     location: "Amsterdam, NL",
-    email: "hello@sebmer.com",
   },
   nav: [
     { label: "Projects", href: "/projects" },

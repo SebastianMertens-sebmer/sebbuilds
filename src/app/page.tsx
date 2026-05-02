@@ -1,7 +1,6 @@
 import {
   Folder,
   ListChecks,
-  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 import { CommandLine } from "@/components/command-line";
@@ -131,16 +130,6 @@ export default function Home() {
               Contact Sebastian
             </a>
           </section>
-
-          <footer className="terminal-footer">
-            <span className="footer-status">
-              <MapPin aria-hidden="true" size={16} />
-              {siteConfig.author.location}
-            </span>
-            <span className="footer-links">
-              <span>(c) 2026 {siteConfig.name}</span>
-            </span>
-          </footer>
         </TerminalFrame>
       </main>
     </>

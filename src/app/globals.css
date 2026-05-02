@@ -919,6 +919,50 @@ select {
   margin-top: 28px;
 }
 
+.legal-stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.legal-section {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.legal-section h2 {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.legal-section p,
+.legal-section li,
+.legal-note {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.legal-section ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.legal-section .button {
+  margin-top: 14px;
+}
+
+.legal-note {
+  margin: 0;
+}
+
 .log-archive {
   display: grid;
   gap: 10px;
