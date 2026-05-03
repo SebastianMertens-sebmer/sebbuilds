@@ -2,9 +2,9 @@
 
 ## Short Bio
 
-Sebastian Mertens builds AI products, AI Agents, automation systems, and public software experiments. He is an AI product leader, AI Agent expert, speaker, and trainer based in the Netherlands serving mostly US customers.
+I build AI products, AI agents, automation systems, and public software experiments for mostly US customers.
 
-Sebastian shares what he is building through Seb Builds, a public home for projects, build logs, agent workflows, and lessons from shipping software in public.
+Seb Builds is where I share projects, build logs, agent workflows, and lessons from shipping in public.
 
 ## What Sebastian Builds
 
