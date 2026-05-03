@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CommandLine } from "@/components/command-line";
@@ -60,15 +61,28 @@ export default function AboutPage() {
         <TerminalFrame active="About">
           <section className="terminal-page about-page" aria-labelledby="about-title">
             <CommandLine command="cat ./about/sebastian.md" />
-            <div className="page-heading">
-              <h1 id="about-title">{heading}</h1>
-              <p>Canonical public profile and builder context for Seb Builds.</p>
-            </div>
+            <div className="about-hero">
+              <div>
+                <div className="page-heading">
+                  <h1 id="about-title">{heading}</h1>
+                  <p>Canonical public profile and builder context for Seb Builds.</p>
+                </div>
 
-            <div className="about-copy">
-              {shortBioParagraphs.map((paragraph) => (
-                <p key={paragraph.text}>{renderInlineMarkdown(paragraph.text)}</p>
-              ))}
+                <div className="about-copy">
+                  {shortBioParagraphs.map((paragraph) => (
+                    <p key={paragraph.text}>{renderInlineMarkdown(paragraph.text)}</p>
+                  ))}
+                </div>
+              </div>
+
+              <Image
+                alt="Sebastian Mertens"
+                className="about-portrait"
+                height={800}
+                priority
+                src="/images/sebastian-mertens.png"
+                width={800}
+              />
             </div>
 
             <div className="about-lines" aria-label="About Sebastian highlights">

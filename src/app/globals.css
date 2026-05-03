@@ -858,6 +858,24 @@ select {
   max-width: 1040px;
 }
 
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(160px, 22vw, 240px);
+  gap: 32px;
+  align-items: start;
+}
+
+.about-portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--surface);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+}
+
 .about-copy {
   display: grid;
   gap: 12px;
@@ -1254,6 +1272,15 @@ select {
 
   .content-card__meta {
     grid-column: 1 / -1;
+  }
+
+  .about-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .about-portrait {
+    width: min(220px, 68vw);
+    order: -1;
   }
 
   .build-log__row {
