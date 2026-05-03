@@ -53,7 +53,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     name: "GitHub",
-    href: "https://github.com/SebastianMertens-sebmer",
+    href: "https://github.com/sebmer-com",
     label: "GitHub",
     status: "live",
     icon: Github,

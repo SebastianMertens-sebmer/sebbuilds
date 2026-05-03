@@ -16,10 +16,10 @@ The folder implies the content type. Projects render as long-form Markdown pages
 The repo can be run directly as a GitHub-sourced CLI with `npx`:
 
 ```bash
-npx github:SebastianMertens-sebmer/sebbuilds
-npx github:SebastianMertens-sebmer/sebbuilds ls ./projects --all
-npx github:SebastianMertens-sebmer/sebbuilds cat ./projects/elson-ai.md
-npx github:SebastianMertens-sebmer/sebbuilds tail -f ./build.log
+npx github:sebmer-com/sebbuilds
+npx github:sebmer-com/sebbuilds ls ./projects --all
+npx github:sebmer-com/sebbuilds cat ./projects/elson-ai.md
+npx github:sebmer-com/sebbuilds tail -f ./build.log
 ```
 
 For local testing, point the CLI at a running local site:

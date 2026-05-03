@@ -6,11 +6,11 @@
   "homepage": "https://sebmer.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SebastianMertens-sebmer/sebbuilds.git",
+    "url": "git+https://github.com/sebmer-com/sebbuilds.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/SebastianMertens-sebmer/sebbuilds/issues"
+    "url": "https://github.com/sebmer-com/sebbuilds/issues"
   },
   "keywords": [
     "seb-builds",
