@@ -8,6 +8,7 @@ import { ContentCard } from "@/components/content-card";
 import { JsonLd } from "@/components/json-ld";
 import { SectionPanel } from "@/components/section-panel";
 import { TerminalFrame } from "@/components/terminal-frame";
+import { getSebastianAbout, getSebastianAboutSectionContent } from "@/lib/about";
 import { getFeaturedProjects, getLogs, getProjects } from "@/lib/content";
 import { personJsonLd, websiteJsonLd } from "@/lib/json-ld";
 import { siteConfig } from "@/lib/site";
@@ -16,6 +17,11 @@ export default function Home() {
   const pinnedProjects = getFeaturedProjects();
   const projects = (pinnedProjects.length > 0 ? pinnedProjects : getProjects()).slice(0, 3);
   const latestLogs = getLogs().slice(0, 5);
+  const about = getSebastianAbout();
+  const shortBioParagraphs = getSebastianAboutSectionContent(about, "Short Bio")
+    .split(/\n\s*\n/)
+    .filter(Boolean)
+    .slice(0, 2);
 
   return (
     <>
@@ -50,14 +56,9 @@ export default function Home() {
                 <span>&gt;_ WHO AM I?</span>
                 <span aria-hidden="true">- x</span>
               </div>
-              <p>
-                <strong>Sebastian</strong> builds useful products, shares the
-                process, and keeps the loop public.
-              </p>
-              <p>
-                Based in the Netherlands. Shipping on sebmer.com. Connect on
-                LinkedIn, X, Instagram, or GitHub.
-              </p>
+              {shortBioParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
               <Link className="about-card__link" href="/about">
                 Read more -&gt;
               </Link>

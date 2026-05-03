@@ -5,6 +5,12 @@ const baseUrl = (process.env.SEB_BUILDS_BASE_URL || DEFAULT_BASE_URL).replace(/\
 const contactUrl = "https://tally.so/r/3jeJVa";
 
 const args = process.argv.slice(2);
+const virtualTextFiles = {
+  "./about/sebastian.md": "/content/about/sebastian.md",
+  "./about/sebastian.json": "/about/sebastian.json",
+  "./context/llms.txt": "/llms.txt",
+  "./context/llms-full.txt": "/llms-full.txt",
+};
 
 async function main() {
   if (args.length === 0 || args.includes("--help") || args.includes("-h")) {
@@ -13,6 +19,11 @@ async function main() {
   }
 
   const [command, target, flag] = args;
+
+  if (command === "ls" && target === "./" && flag === "--all") {
+    await listAll();
+    return;
+  }
 
   if (command === "ls" && target === "./projects" && flag === "--all") {
     await listProjects();
@@ -29,8 +40,8 @@ async function main() {
     return;
   }
 
-  if (command === "cat" && target === "./about/sebastian.md") {
-    printAbout();
+  if (command === "cat" && target && target in virtualTextFiles) {
+    await printText(virtualTextFiles[target]);
     return;
   }
 
@@ -43,6 +54,37 @@ async function main() {
   console.error("");
   printHelp();
   process.exitCode = 1;
+}
+
+async function listAll() {
+  const [projects, logs] = await Promise.all([getProjects(), getLogs()]);
+
+  console.log("SEB BUILDS / virtual files");
+  console.log("");
+  console.log("./about/sebastian.md");
+  console.log("./about/sebastian.json");
+  console.log("./context/llms.txt");
+  console.log("./context/llms-full.txt");
+  console.log("./build.log");
+  console.log("./contact.txt");
+  console.log("./projects/");
+
+  for (const project of projects) {
+    console.log(`./projects/${project.slug}.md`);
+  }
+
+  console.log("./content/about/sebastian.md");
+  console.log("./content/projects/index.json");
+
+  for (const project of projects) {
+    console.log(`./content/projects/${project.slug}.json`);
+  }
+
+  console.log("./content/logs/index.json");
+
+  for (const log of logs) {
+    console.log(`./content/logs/${log.id}.json`);
+  }
 }
 
 async function listProjects() {
@@ -69,6 +111,16 @@ async function printProject(target) {
   console.log("");
   console.log(project.description);
   console.log("");
+  const projectLinks = getProjectLinks(project);
+
+  for (const link of projectLinks) {
+    console.log(`${link.label}: ${link.href}`);
+  }
+
+  if (projectLinks.length > 0) {
+    console.log("");
+  }
+
   console.log(project.body);
 }
 
@@ -81,14 +133,17 @@ async function printLogs() {
   for (const log of logs) {
     console.log(`${log.date} ${log.time}  ${log.text}`);
     console.log(`  ${log.detail}`);
+
+    if (log.imageUrl) {
+      console.log(`  image: ${baseUrl}${log.imageUrl}`);
+    }
   }
 }
 
-function printAbout() {
-  console.log(`# Sebastian`);
-  console.log("");
-  console.log("Sebastian builds useful products, shares the process, and keeps the loop public.");
-  console.log("Based in the Netherlands. Shipping on sebmer.com.");
+async function printText(pathname) {
+  const text = await fetchText(pathname);
+
+  console.log(text.trimEnd());
 }
 
 function printHelp() {
@@ -96,10 +151,14 @@ function printHelp() {
   console.log("products in public.");
   console.log("");
   console.log("Usage:");
+  console.log("  npx github:sebmer-com/sebbuilds ls ./ --all");
   console.log("  npx github:sebmer-com/sebbuilds ls ./projects --all");
   console.log("  npx github:sebmer-com/sebbuilds cat ./projects/elson-ai.md");
   console.log("  npx github:sebmer-com/sebbuilds tail -f ./build.log");
   console.log("  npx github:sebmer-com/sebbuilds cat ./about/sebastian.md");
+  console.log("  npx github:sebmer-com/sebbuilds cat ./about/sebastian.json");
+  console.log("  npx github:sebmer-com/sebbuilds cat ./context/llms.txt");
+  console.log("  npx github:sebmer-com/sebbuilds cat ./context/llms-full.txt");
   console.log("  npx github:sebmer-com/sebbuilds open contact.txt");
 }
 
@@ -131,6 +190,14 @@ function normalizeManifest(manifest, label) {
   return manifest.items.map((item) => (item.endsWith(".json") ? item : `${item}.json`));
 }
 
+function getProjectLinks(project) {
+  return [
+    { label: "Demo", href: project.demoUrl },
+    { label: "Repo", href: project.repoUrl },
+    { label: "Video", href: project.videoUrl },
+  ].filter((link) => Boolean(link.href));
+}
+
 async function fetchJson(pathname) {
   const response = await fetch(`${baseUrl}${pathname}`);
 
@@ -139,6 +206,16 @@ async function fetchJson(pathname) {
   }
 
   return response.json();
+}
+
+async function fetchText(pathname) {
+  const response = await fetch(`${baseUrl}${pathname}`);
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch ${pathname}: ${response.status} ${response.statusText}`);
+  }
+
+  return response.text();
 }
 
 main().catch((error) => {

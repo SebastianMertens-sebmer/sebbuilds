@@ -1,10 +1,11 @@
 {
   "title": "Von Thomas Next",
   "slug": "von-thomas-next",
-  "description": "An operations platform for catering workflows, admin tools, inbox handling, and order preparation.",
+  "description": "A real catering operations system with online booking, admin workflows, and kitchen-ready order flow.",
   "date": "2026-04-20",
   "tags": ["Next.js", "Operations", "Admin"],
   "status": "shipped",
   "featured": false,
-  "body": "Von Thomas Next is an operations platform for catering and admin workflows.\n\nThe public summary is intentionally practical: the work connects order preparation, inbox handling, admin decisions, and operational edge cases into one web system. Recent work included same-day order handling, inbox visibility fixes, and keeping ordering preparation reproducible.\n\n## What it supports\n\n- Admin workflows for day-to-day operations.\n- Inbox and communication visibility.\n- Order preparation and operational exceptions.\n- A more reliable path from customer input to kitchen-ready work.\n\n## Public boundary\n\nThis page does not include client-private data, internal process details, or operational exports. It describes the software surface and the type of workflows it supports."
+  "demoUrl": "https://von-thomas.de",
+  "body": "Von Thomas Next is a shipped operations platform for catering workflows.\n\nIt turns a messy service process into a web system: customers move through a clearer booking flow, the team gets admin visibility, and orders become easier to prepare without endless manual back-and-forth.\n\n## What it supports\n\n- Online catering configuration and booking flows.\n- Admin workflows for day-to-day operational decisions.\n- Inbox and communication visibility around customer requests.\n- Order preparation, same-day edge cases, and kitchen-ready handoff.\n\n## Why it matters\n\nThis is the kind of software I like building: not a slide deck, not a toy AI demo, but an operational system that removes friction from a real business process.\n\n## Public boundary\n\nThis page does not include client-private data, internal process details, campaign data, or operational exports. It describes the public product surface and the type of workflows it supports."
 }

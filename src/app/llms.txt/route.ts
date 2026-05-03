@@ -1,9 +1,12 @@
+import { getSebastianAbout, getSebastianAboutSectionContent } from "@/lib/about";
 import { getProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
+  const about = getSebastianAbout();
+  const shortBio = getSebastianAboutSectionContent(about, "Short Bio");
   const projects = getProjects();
   const projectLinks = projects
     .map((project) => `- [${project.title}](${siteConfig.url}${project.href}): ${project.description}`)
@@ -12,6 +15,10 @@ export function GET() {
   const text = `# ${siteConfig.name}
 
 ${siteConfig.name} is Sebastian's public builder log for useful products, long-form project posts, and short build logs.
+
+## About Sebastian
+
+${shortBio}
 
 ## Key Pages
 
@@ -26,12 +33,21 @@ ${siteConfig.name} is Sebastian's public builder log for useful products, long-f
 
 ## Public JSON Content
 
+- [About Sebastian JSON](${siteConfig.url}/about/sebastian.json)
+- [About Sebastian Markdown](${siteConfig.url}/content/about/sebastian.md)
 - [Projects manifest](${siteConfig.url}/content/projects/index.json)
 - [Logs manifest](${siteConfig.url}/content/logs/index.json)
 
 ## Projects
 
 ${projectLinks}
+
+## Agent CLI
+
+- \`npx github:sebmer-com/sebbuilds ls ./ --all\`
+- \`npx github:sebmer-com/sebbuilds cat ./about/sebastian.md\`
+- \`npx github:sebmer-com/sebbuilds cat ./about/sebastian.json\`
+- \`npx github:sebmer-com/sebbuilds cat ./context/llms-full.txt\`
 
 ## Notes For AI Agents
 

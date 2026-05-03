@@ -1,10 +1,11 @@
 {
   "title": "Lovalingo",
   "slug": "lovalingo",
-  "description": "A translation and localization stack for React and Next.js apps, with SEO and admin workflows.",
+  "description": "A translation tool for vibe coders using Lovable, Replit, Claude Code, and modern web builders.",
   "date": "2026-03-17",
   "tags": ["Next.js", "i18n", "SEO"],
   "status": "building",
   "featured": false,
-  "body": "Lovalingo is a translation and localization stack for React and Next.js apps.\n\nThe active Rocket work spans the runtime package, marketing site, SEO content, database/admin work, and email-style inbox workflows. The product idea is simple: make multilingual web apps easier to operate without turning translation into a fragile one-off process.\n\n## What it does\n\n- Adds translation and localization capabilities to React and Next.js apps.\n- Supports multilingual SEO surfaces such as sitemaps, canonicals, and localized pages.\n- Gives teams operational tools around projects, users, and content workflows.\n- Connects the public marketing story with the underlying product system.\n\n## Current direction\n\nRecent work focused on admin inbox management, email threads, SEO fixes, locale-aware URLs, and making the public site more resilient."
+  "demoUrl": "https://lovalingo.com",
+  "body": "Lovalingo is a translation tool for vibe coders: people building web pages fast with Lovable, Replit, Claude Code, and other modern AI-first builders.\n\nThe problem is simple. Vibe-coded apps can get from idea to live page quickly, but translation is still annoying once the site has multiple routes, components, SEO pages, and product copy. Lovalingo is built to make those pages multilingual without turning the project into a manual i18n cleanup job.\n\n## What it does\n\n- Helps translate web pages built with Lovable, Replit, Claude Code, and React or Next.js stacks.\n- Turns fast-built pages into multilingual surfaces without making the builder rewrite everything by hand.\n- Supports localization basics like translated copy, routes, SEO pages, canonicals, and sitemaps.\n- Gives builders an operational layer for projects, content, users, and translation workflows.\n\n## Why it matters\n\nVibe coding makes building faster. Lovalingo is about making the next step faster too: taking a working page and shipping it to more markets without losing momentum.\n\n## Current direction\n\nRecent work focused on the public site, admin workflows, SEO fixes, locale-aware URLs, and making the product easier to understand for AI-first builders."
 }

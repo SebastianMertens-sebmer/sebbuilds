@@ -1,10 +1,10 @@
 {
   "title": "Tracker",
   "slug": "tracker",
-  "description": "A Swift-first macOS utility for activity tracking and real permission-state onboarding.",
+  "description": "A Swift-first macOS utility for activity context, permissions, and local workflow signals.",
   "date": "2026-04-08",
   "tags": ["macOS", "Swift", "Productivity"],
   "status": "building",
   "featured": false,
-  "body": "Tracker is a Swift-first macOS utility for understanding local activity and making permission onboarding match the real system state.\n\nThe project focuses on the unglamorous but important part of desktop tools: permissions, onboarding, and trustworthy local behavior. If a macOS app needs screen recording or activity context, the user should always understand what is happening and what the app can actually access.\n\n## What it explores\n\n- Native macOS permission flows.\n- Clear onboarding for screen and activity access.\n- Local-first tracking behavior that stays understandable.\n- A foundation for future productivity and workflow tools.\n\n## Current direction\n\nRecent work tightened onboarding so the UI reflects the real macOS permission state instead of guessing."
+  "body": "Tracker is a native macOS utility for local activity context and permission-aware workflows.\n\nIt focuses on the part most AI productivity tools try to skip: what can the app actually see, what did the user approve, and how do you make that state obvious without turning onboarding into a support ticket generator?\n\n## What it explores\n\n- Native Swift flows for screen, activity, and system permission states.\n- Clear onboarding that reflects the real macOS state instead of guessing.\n- Local-first workflow signals that can support future productivity tools.\n- A calmer foundation for desktop assistants that need context without being creepy.\n\n## Why it matters\n\nUseful agents need context. Good products need trust. Tracker sits in that gap and treats permissions as product design, not boilerplate.\n\n## Current direction\n\nRecent work tightened onboarding and made the UI line up with what macOS actually allows."
 }

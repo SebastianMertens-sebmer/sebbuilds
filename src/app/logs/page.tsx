@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CommandLine } from "@/components/command-line";
 import { TerminalFrame } from "@/components/terminal-frame";
 import { getLogs } from "@/lib/content";
@@ -42,6 +43,16 @@ export default function LogsPage() {
                 <div>
                   <h2>{item.text}</h2>
                   <p>{item.detail}</p>
+                  {item.imageUrl ? (
+                    <Image
+                      alt={item.imageAlt ?? `Build log visual for ${item.text}`}
+                      className="log-entry__image"
+                      height={820}
+                      loading="lazy"
+                      src={item.imageUrl}
+                      width={1400}
+                    />
+                  ) : null}
                 </div>
               </article>
             ))}

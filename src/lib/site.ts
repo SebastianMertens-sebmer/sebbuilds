@@ -83,8 +83,8 @@ export const siteConfig = {
     contactLabel: "Available on request via the contact form",
   },
   author: {
-    name: "Sebastian",
-    location: "Amsterdam, NL",
+    name: "Sebastian Mertens",
+    location: "Netherlands",
   },
   nav: [
     { label: "Projects", href: "/projects" },

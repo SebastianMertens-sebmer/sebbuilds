@@ -1,10 +1,11 @@
 {
   "title": "Gairvis",
   "slug": "gairvis",
-  "description": "A branded web and canvas product combining a public site with interactive AI work surfaces.",
+  "description": "A branded AI product surface that combines a public site with canvas-style work interfaces.",
   "date": "2026-03-05",
   "tags": ["Next.js", "Canvas", "AI"],
   "status": "building",
   "featured": false,
-  "body": "Gairvis combines branded web work with an interactive canvas product surface.\n\nThe Rocket repos include a public web presence and canvas-oriented product work. The public version of the story is about shaping an AI-facing interface that feels useful, readable, and tied to a real brand instead of a generic demo.\n\n## What it explores\n\n- A Next.js web surface with SEO and brand foundations.\n- Canvas-style interaction patterns for AI-assisted work.\n- Product structure that can support more than a static marketing page.\n- Clearer code organization as the product grows.\n\n## Current direction\n\nRecent work focused on web structure, brand-ready components, and reliability improvements in the canvas-side product."
+  "demoUrl": "https://gairvis.com",
+  "body": "Gairvis is a branded AI product surface built around a public web presence and canvas-style work interfaces.\n\nThe goal is to make the AI layer feel like a real product, not another generic chat box. The public site gives the brand a front door. The canvas direction explores how work can happen visually, with context, structure, and room for agents to help.\n\n## What it explores\n\n- A Next.js web surface with brand, SEO, and product foundations.\n- Canvas-style interaction patterns for AI-assisted work.\n- Product structure that can grow beyond a static marketing page.\n- Interface patterns where agents support the workflow instead of stealing the whole screen.\n\n## Why it matters\n\nAI products need better surfaces. Gairvis is part of that exploration: less prompt theater, more useful space for humans and agents to work together.\n\n## Current direction\n\nRecent work focused on web structure, brand-ready components, and reliability improvements in the canvas-side product."
 }

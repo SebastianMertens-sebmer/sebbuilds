@@ -37,6 +37,8 @@ export type LogEntry = {
   time: string;
   text: string;
   detail: string;
+  imageUrl?: string;
+  imageAlt?: string;
 };
 
 type Manifest = {
@@ -63,6 +65,8 @@ type RawLog = {
   time?: unknown;
   text?: unknown;
   detail?: unknown;
+  imageUrl?: unknown;
+  imageAlt?: unknown;
 };
 
 function readJson(filePath: string): unknown {
@@ -163,6 +167,8 @@ function readLog(fileName: string): LogEntry {
     time: requireString(raw.time, "time", filePath),
     text: requireString(raw.text, "text", filePath),
     detail: requireString(raw.detail, "detail", filePath),
+    imageUrl: optionalString(raw.imageUrl),
+    imageAlt: optionalString(raw.imageAlt),
   };
 }
 

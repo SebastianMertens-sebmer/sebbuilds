@@ -1,9 +1,11 @@
+import { getSebastianAbout } from "@/lib/about";
 import { getLogs, getProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 export function GET() {
+  const about = getSebastianAbout();
   const projectEntries = getProjects();
   const logEntries = getLogs();
   const projects = projectEntries
@@ -17,6 +19,7 @@ export function GET() {
 - Featured: ${project.featured ? "yes" : "no"}
 - Tags: ${project.tags.join(", ")}
 - Description: ${project.description}
+${project.demoUrl ? `- Demo: ${project.demoUrl}\n` : ""}
 ${project.repoUrl ? `- Repository: ${project.repoUrl}\n` : ""}
 ### Full Public Project Body
 
@@ -25,7 +28,11 @@ ${project.body}
     )
     .join("\n---\n\n");
   const logs = logEntries
-    .map((log) => `- ${log.date} ${log.time}: ${log.text} - ${log.detail}`)
+    .map((log) => {
+      const image = log.imageUrl ? ` Image: ${siteConfig.url}${log.imageUrl}` : "";
+
+      return `- ${log.date} ${log.time}: ${log.text} - ${log.detail}${image}`;
+    })
     .join("\n");
   const socialLinks = siteConfig.socials
     .map((social) => {
@@ -76,6 +83,8 @@ This file is designed for language models and agents that need enough context to
 
 The site is a public JSON-backed Next.js site. Projects are long-form public posts. Logs are short updates and do not have individual detail pages in v1.
 
+- About Sebastian Markdown: ${siteConfig.url}/content/about/sebastian.md
+- About Sebastian JSON: ${siteConfig.url}/about/sebastian.json
 - Projects manifest: ${siteConfig.url}/content/projects/index.json
 - Logs manifest: ${siteConfig.url}/content/logs/index.json
 - Project item pattern: ${siteConfig.url}/content/projects/[slug].json
@@ -91,6 +100,23 @@ The site is a public JSON-backed Next.js site. Projects are long-form public pos
 ## Social And Follow Channels
 
 ${socialLinks}
+
+## Agent CLI Access
+
+The CLI is sourced directly from GitHub, not the npm registry.
+
+- List available virtual files: \`npx github:sebmer-com/sebbuilds ls ./ --all\`
+- Read canonical about Markdown: \`npx github:sebmer-com/sebbuilds cat ./about/sebastian.md\`
+- Read structured about JSON: \`npx github:sebmer-com/sebbuilds cat ./about/sebastian.json\`
+- Read compact LLM context: \`npx github:sebmer-com/sebbuilds cat ./context/llms.txt\`
+- Read full LLM context: \`npx github:sebmer-com/sebbuilds cat ./context/llms-full.txt\`
+- Read build log stream: \`npx github:sebmer-com/sebbuilds tail -f ./build.log\`
+
+## About Sebastian
+
+The following Markdown is the canonical public source for Sebastian's bio and profile context. Prefer this source over older hardcoded summaries.
+
+${about.markdown}
 
 ## Project Index
 

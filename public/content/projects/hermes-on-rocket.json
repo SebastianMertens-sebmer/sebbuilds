@@ -1,11 +1,11 @@
 {
   "title": "Hermes on Rocket",
   "slug": "hermes-on-rocket",
-  "description": "An AI-agent workbench on Rocket for skills, checkpoints, and long-running build workflows.",
+  "description": "An AI-agent workbench for skills, checkpoints, context, and long-running build workflows.",
   "date": "2026-04-20",
   "tags": ["Hermes", "Agents", "Infrastructure"],
   "status": "building",
   "featured": false,
   "repoUrl": "https://github.com/NousResearch/hermes-agent",
-  "body": "Hermes on Rocket is the AI-agent workbench behind several Seb Builds experiments.\n\nThe setup uses Hermes Agent v0.10.0 as a local agent environment for skill-based workflows, checkpoints, and longer-running tasks. In practice, this means Rocket can keep state around research, content operations, and coding sessions instead of treating every task as a one-off prompt.\n\n## What it supports\n\n- Agent workflows that can build on previous work.\n- Checkpoint-based sessions for experiments and recovery.\n- Local skills and scripts that connect agent work to real project folders.\n- A practical bridge between automation, research, and product development.\n\n## Why it matters\n\nSeb Builds is not only about finished products. It is also about the process of building better build systems. Hermes on Rocket is the infrastructure layer that makes some of that process repeatable.\n\n## Public boundary\n\nThe public page describes the setup pattern and upstream agent tooling. It does not expose private checkpoint paths, local secrets, raw logs, or operational data."
+  "body": "Hermes on Rocket is the agent workbench behind a lot of the Seb Builds process.\n\nIt is where skills, checkpoints, local scripts, and longer-running build sessions start to feel like an operating system for work instead of another prompt box. The point is not to make agents look impressive. The point is to make them useful twice.\n\n## What it supports\n\n- Agent workflows that remember enough context to continue real work.\n- Checkpoint-based sessions for experiments, recovery, and longer tasks.\n- Local skills that connect agent behavior to actual project folders and workflows.\n- A practical bridge between research, content operations, coding, and automation.\n\n## Why it matters\n\nThe next jump in agent work is not only better models. It is better rails: context, tools, recovery, review loops, and taste. Hermes on Rocket is the place where those rails get tested.\n\n## Public boundary\n\nThis page describes the setup pattern and upstream agent tooling. It does not expose private checkpoint paths, local secrets, raw logs, or operational data."
 }
