@@ -109,11 +109,23 @@ export default function Home() {
               <h2>Follow the build.</h2>
             </div>
             <div className="status-pills" aria-label="Current channels">
-              {siteConfig.socials.map((social) => (
-                <span data-status={social.status} key={social.name}>
-                  {social.label}
-                </span>
-              ))}
+              {siteConfig.socials.map((social) =>
+                social.status === "live" && social.href ? (
+                  <a
+                    data-status={social.status}
+                    href={social.href}
+                    key={social.name}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {social.label}
+                  </a>
+                ) : (
+                  <span data-status={social.status} key={social.name}>
+                    {social.label}
+                  </span>
+                ),
+              )}
             </div>
           </section>
 
