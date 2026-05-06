@@ -3,8 +3,12 @@
   "slug": "social-rocket",
   "description": "A Hermes-assisted research loop for spotting better build signals before posting in public.",
   "date": "2026-04-29",
-  "tags": ["Hermes", "Content", "Research"],
+  "tags": [
+    "Hermes",
+    "Content",
+    "Research"
+  ],
   "status": "building",
   "featured": true,
-  "body": "Social Rocket is the research loop behind the public side of Seb Builds.\n\nThe idea is simple: better inputs create better posts. Instead of guessing what to write about, the system helps collect public signals, review what is worth attention, and turn real building activity into useful updates.\n\n## What it does\n\n- Tracks public creator patterns, product signals, and AI-builder topics across social channels.\n- Keeps lightweight review queues for follows, references, and content angles.\n- Uses Hermes-assisted workflows to summarize, compare, and organize public research.\n- Connects the work being built with the story worth telling about it.\n\n## Why it matters\n\nBuild-in-public gets boring when it becomes random screenshots and forced updates. Social Rocket is meant to make the loop sharper: less noise, better source notes, and more useful public writing.\n\n## Public boundary\n\nThe public version is the product idea and workflow pattern. It does not expose private account data, credentials, raw exports, or operational scripts."
+  "body": "Social Rocket is the research loop behind the public side of Seb Builds.\n\nThe idea is simple: better inputs create better posts. Instead of guessing what to write about, the system helps collect public signals, review what is worth attention, and turn real building activity into useful updates.\n\n## What it does\n\n- Tracks public creator patterns, product signals, and AI-builder topics across social channels.\n- Keeps lightweight review queues for follows, references, and content angles.\n- Uses Hermes-assisted workflows to summarize, compare, and organize public research.\n- Connects the work being built with the story worth telling about it.\n\n## Recent work\n\nThe current pass connected the research loop back into Seb Builds itself: project pages, logs, and the homepage now make it easier to turn real work into concise public updates instead of private notes that disappear.\n\n## Why it matters\n\nBuild-in-public gets boring when it becomes random screenshots and forced updates. Social Rocket is meant to make the loop sharper: less noise, better source notes, and more useful public writing.\n\n## Public boundary\n\nThe public version is the product idea and workflow pattern. It does not expose private account data, credentials, raw exports, or operational scripts."
 }

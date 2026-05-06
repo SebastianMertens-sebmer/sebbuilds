@@ -3,9 +3,13 @@
   "slug": "elson-ai",
   "description": "A local-first macOS voice agent for dictation, cleanup, replies, and paste-first desktop work.",
   "date": "2026-04-17",
-  "tags": ["macOS", "AI", "Voice"],
+  "tags": [
+    "macOS",
+    "AI",
+    "Voice"
+  ],
   "status": "shipped",
   "featured": true,
   "repoUrl": "https://github.com/TEMPO-AI-LLC/elson.ai",
-  "body": "Elson.ai is the voice layer I want on my own Mac: fast dictation, transcript cleanup, screenshot-aware replies, and a paste-first workflow that ends inside the app I am already using.\n\nIt is intentionally local-first and inspectable. Not another black-box assistant window. Elson sits closer to the desktop, listens when needed, cleans up the messy human input, and gives me text that is ready to use.\n\n## What it does\n\n- Turns speech into usable writing for chat, docs, email, and daily desktop work.\n- Cleans rough transcripts into text that sounds like a person, not a recorder dump.\n- Uses screenshot context for lightweight replies and better situational help.\n- Keeps the flow paste-first so the assistant does not become the workspace.\n\n## Why it matters\n\nVoice is one of the fastest inputs we have, but most voice tools still feel bolted on. Elson is the version that feels closer to how I actually work: local, quick, editable, and open enough to improve in public.\n\n## Current direction\n\nRecent work tightened the macOS utility experience: installer flow, prompt behavior, legacy chat fixes, and making the app feel less like a demo and more like a tool I can keep running."
+  "body": "Elson.ai is the voice layer I want on my own Mac: fast dictation, transcript cleanup, screenshot-aware replies, and a paste-first workflow that ends inside the app I am already using.\n\nIt is intentionally local-first and inspectable. Not another black-box assistant window. Elson sits closer to the desktop, listens when needed, cleans up the messy human input, and gives me text that is ready to use.\n\n## What it does\n\n- Turns speech into usable writing for chat, docs, email, and daily desktop work.\n- Cleans rough transcripts into text that sounds like a person, not a recorder dump.\n- Uses screenshot context for lightweight replies and better situational help.\n- Keeps the flow paste-first so the assistant does not become the workspace.\n\n## Recent work\n\nThe recent focus has been making Elson feel less like a demo and more like a daily utility: cleaner installer and desktop flows, tighter prompt behavior, legacy chat fixes, and a clearer path for moving the related project surface onto the build machine.\n\n## Why it matters\n\nVoice is one of the fastest inputs we have, but most voice tools still feel bolted on. Elson is the version that feels closer to how I actually work: local, quick, editable, and open enough to improve in public.\n\n## Public boundary\n\nThe public version is the product direction and desktop workflow. It does not expose private local files, credentials, internal app data, or unreleased operational details."
 }

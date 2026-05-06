@@ -1,11 +1,15 @@
 {
   "title": "Von Thomas Next",
   "slug": "von-thomas-next",
-  "description": "A real catering operations system with online booking, admin workflows, and kitchen-ready order flow.",
+  "description": "A real catering operations and SEO-growth system with online booking, admin workflows, and city-service expansion planning.",
   "date": "2026-04-20",
-  "tags": ["Next.js", "Operations", "Admin"],
+  "tags": [
+    "Next.js",
+    "Operations",
+    "SEO"
+  ],
   "status": "shipped",
   "featured": false,
   "demoUrl": "https://von-thomas.de",
-  "body": "Von Thomas Next is a shipped operations platform for catering workflows.\n\nIt turns a messy service process into a web system: customers move through a clearer booking flow, the team gets admin visibility, and orders become easier to prepare without endless manual back-and-forth.\n\n## What it supports\n\n- Online catering configuration and booking flows.\n- Admin workflows for day-to-day operational decisions.\n- Inbox and communication visibility around customer requests.\n- Order preparation, same-day edge cases, and kitchen-ready handoff.\n\n## Why it matters\n\nThis is the kind of software I like building: not a slide deck, not a toy AI demo, but an operational system that removes friction from a real business process.\n\n## Public boundary\n\nThis page does not include client-private data, internal process details, campaign data, or operational exports. It describes the public product surface and the type of workflows it supports."
+  "body": "Von Thomas Next is a shipped operations platform for catering workflows.\n\nIt turns a messy service process into a web system: customers move through a clearer booking flow, the team gets admin visibility, and orders become easier to prepare without endless manual back-and-forth.\n\n## What it supports\n\n- Online catering configuration and booking flows.\n- Admin workflows for day-to-day operational decisions.\n- Inbox and communication visibility around customer requests.\n- Order preparation, same-day edge cases, and kitchen-ready handoff.\n\n## Recent work\n\nThe newest layer is a public-safe SEO expansion plan for local catering demand. We compared the shape of competitor landing pages, mapped city and service clusters, and turned that into a phased plan for city pages, money pages, and micro-local coverage.\n\nThe important part is restraint: the system should expand around real offers and crawlable pages, not mass-publish thin location spam.\n\n## Why it matters\n\nThis is the kind of software I like building: not a slide deck, not a toy AI demo, but an operational system that removes friction from a real business process and can grow through better distribution.\n\n## Public boundary\n\nThis page does not include client-private data, internal process details, campaign data, or operational exports. It describes the public product surface, the SEO direction, and the type of workflows it supports."
 }
