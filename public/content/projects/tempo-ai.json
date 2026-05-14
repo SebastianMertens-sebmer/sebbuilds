@@ -1,0 +1,15 @@
+{
+  "title": "TEMPO AI",
+  "slug": "tempo-ai",
+  "description": "A minimal company profile site for the TEMPO AI product family, linking Lovalingo and Elson into one public company surface.",
+  "date": "2026-05-06",
+  "tags": [
+    "Company Site",
+    "Next.js",
+    "AI Products"
+  ],
+  "status": "shipped",
+  "featured": false,
+  "repoUrl": "https://github.com/TEMPO-AI-LLC/tempo-ai-llc",
+  "body": "TEMPO AI is the small public company profile site that connects the product family into one surface.\n\nThe recent commits created a minimal GitHub Pages-ready site: a brand page, product grid, global styling, metadata, CNAME, and deployment workflow. The page keeps the message simple: AI products that help teams scale faster, with Lovalingo and Elson as the first visible products.\n\n## What changed in the recent commits\n\n- Created the initial company profile site.\n- Added product links for Lovalingo and Elson AI.\n- Built the GitHub Pages workflow and triggered deployment.\n- Added the apex domain configuration for the public site.\n\n## Why it matters\n\nLovalingo and Elson are different products, but they need a common company layer. TEMPO AI gives that product family a small public home without overbuilding the company site before the products need it.\n\n## Public boundary\n\nThis entry covers the public company website only. It does not include private company operations, credentials, analytics, or account data."
+}

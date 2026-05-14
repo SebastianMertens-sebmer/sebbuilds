@@ -1,0 +1,14 @@
+{
+  "title": "Restaurant Thomas",
+  "slug": "restaurant-thomas",
+  "description": "A dedicated restaurant and event-location website for Restaurant Thomas in Geldern, with structured SEO pages and inquiry flows.",
+  "date": "2026-05-10",
+  "tags": [
+    "Next.js",
+    "Restaurant",
+    "SEO"
+  ],
+  "status": "building",
+  "featured": false,
+  "body": "Restaurant Thomas is a dedicated public website for the restaurant side of the Thomas ecosystem. It is separate from the catering operations platform: this surface is about the restaurant, Biergarten, event location, Refektorium, inquiry paths, and local search visibility.\n\nThe recent commits show a fast build from initial site to practical fixes: page structure, schema, llms.txt, inquiry handling, group-size copy, and header links.\n\n## What changed in the recent commits\n\n- Started the Next.js restaurant website with public pages, images, metadata, structured schema, and local Geldern positioning.\n- Added pages for restaurant, Biergarten, events, inquiry flow, and supporting public surfaces such as llms.txt.\n- Tightened group-size copy so the offer matches how guests actually understand restaurant bookings.\n- Fixed the inquiry email fallback so customer requests have a safer path if the form flow needs to fall back.\n- Fixed the Catering Online header link so the restaurant site connects correctly to the catering surface.\n\n## Why it matters\n\nThe restaurant and catering surfaces should not fight each other. The restaurant site gives local guests and event customers a clearer entry point, while the catering system can stay focused on larger operational workflows.\n\n## Public boundary\n\nThis entry describes the public website and inquiry flow. It does not include private customer requests, internal inbox data, or credentials."
+}

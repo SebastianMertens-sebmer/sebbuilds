@@ -1,0 +1,16 @@
+{
+  "title": "Seb Builds",
+  "slug": "seb-builds",
+  "description": "The public build log and project index for Sebastian Mertens: project pages, notes, CLI access, and GitHub Pages deployment for sebmer.com.",
+  "date": "2026-05-06",
+  "tags": [
+    "Next.js",
+    "Build Log",
+    "Portfolio"
+  ],
+  "status": "building",
+  "featured": false,
+  "repoUrl": "https://github.com/sebmer-com/sebbuilds",
+  "demoUrl": "https://sebmer.com",
+  "body": "Seb Builds is the public build surface behind sebmer.com. It turns active work into project pages, build logs, notes, metadata routes, and agent-readable context files.\n\nThe recent local commits show the site becoming more than a starter portfolio. It gained GitHub Pages deployment, public JSON content, a CLI package, the sebmer.com domain wiring, an About page, project narratives, accessibility improvements, and richer logs.\n\n## What changed in the recent commits\n\n- Replaced the starter notes/projects with real public project inventory and build logs.\n- Added GitHub Pages deployment, CNAME handling, static export details, legal page, sitemap, robots, and RSS surfaces.\n- Prepared a CLI package so the same public content can be inspected from developer workflows.\n- Updated GitHub owner references to `sebmer-com`.\n- Added the Sebastian profile page, public profile JSON, image layout, and clearer project descriptions.\n- Expanded build logs and narratives after the first pass was too thin.\n\n## Why it matters\n\nThe site is a memory layer for real work. It is not meant to leak private implementation details; it is meant to keep enough public context that projects do not disappear into private repos and chat transcripts.\n\n## Public boundary\n\nSeb Builds intentionally avoids credentials, private local paths, client-private data, raw exports, and unreleased execution details."
+}

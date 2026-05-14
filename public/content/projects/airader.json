@@ -1,0 +1,14 @@
+{
+  "title": "airader",
+  "slug": "airader",
+  "description": "A session-replay and customer-journey analysis product with public API docs, OpenAPI surfaces, and SEO comparison pages.",
+  "date": "2026-05-12",
+  "tags": [
+    "Analytics",
+    "Session Replay",
+    "API"
+  ],
+  "status": "building",
+  "featured": false,
+  "body": "airader is the renamed product surface from the recent trakkker repository work: a session-replay tool for watching user sessions, understanding customer-journey friction, and exporting session data into analysis workflows.\n\nThe recent commits moved it away from a generic tracker shell and toward a clearer product: landing-page copy, session pagination, login and site-detail flows, public API documentation, OpenAPI schema, and comparison pages for teams looking beyond generic analytics tools.\n\n## What changed in the recent commits\n\n- Rebranded the product surface to airader.\n- Extended tracker-session pagination so longer session lists can be inspected instead of stopping at the first page.\n- Added public API documentation and an OpenAPI schema.\n- Improved the landing page, SEO copy, metrics state, HUD state, and notification-hook state.\n- Added Hotjar and Lucky Orange comparison pages that explain the session-replay angle and API/export positioning.\n\n## Why it matters\n\nSession replay gets more useful when it is not trapped inside a closed dashboard. The product direction here is explicit: observe the journey, keep the raw session context reachable, and make the data usable for the customer’s own analysis workflow.\n\n## Public boundary\n\nThis public entry describes the product surface and API/documentation work. It does not expose private customer sessions, internal keys, deployment secrets, or analytics data."
+}
